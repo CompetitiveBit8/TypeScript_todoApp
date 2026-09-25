@@ -2,7 +2,6 @@ import type { Todo } from "../model"
 import { AiFillEdit, AiFillDelete } from "react-icons/ai"
 import { MdDone } from "react-icons/md"
 import './style.css'
-import TodoList from "./TodoList"
 import React, { useEffect, useRef, useState } from "react"
 
 type Props = {
@@ -20,7 +19,7 @@ const SingleTodo = ({todo, todos, setTodos}: Props) => {
 
     const handleDone = (id: number) => {
         setTodos(todos.map((todo) => todo.id === id?{
-            ...todo, isDone : !TodoList.isDone}: todo)
+            ...todo, isDone : !todo.isDone}: todo)
         )
     };
 

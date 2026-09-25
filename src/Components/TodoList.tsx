@@ -1,15 +1,19 @@
 import './style.css'
 import type { Todo } from '../model';
 import SingleTodo from "./SingleTodo";
+import { useDroppable } from '@dnd-kit/react';
 
 interface Props{
     todos: Todo[];
     setTodos: React.Dispatch<React.SetStateAction<Todo[]>>;
+    completedTodos: Todo[];
+    setCompletedTodos: React.Dispatch<React.SetStateAction<Todo[]>>;
 }
 
 const TodoList: React.FC<Props> = ({todos, setTodos}: Props) => {
   return (
     <div className='container'>
+        {/* <useDroppable */}
         <div className='todos'>
             <span className='todos__heading'>Active</span>
             {
@@ -24,7 +28,7 @@ const TodoList: React.FC<Props> = ({todos, setTodos}: Props) => {
             }
         </div>
         <div className='todos remove'>
-            <span className='todos__heading'>Completed Task</span>
+            <span className='todos__heading'>Completed</span>
             {
                 todos.map((todo)=>(
                     <SingleTodo 
