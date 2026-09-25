@@ -18,12 +18,15 @@ const TodoList: React.FC<Props> = ({todos, setTodos}: Props) => {
             <span className='todos__heading'>Active</span>
             {
                 todos.map((todo)=>(
+                    !todo.isDone ?
                     <SingleTodo 
                     todo={todo}
                     todos={todos}
                     key={todo.id}
                     setTodos={setTodos}
                     />
+                    :
+                    null
                 ))
             }
         </div>
@@ -31,12 +34,15 @@ const TodoList: React.FC<Props> = ({todos, setTodos}: Props) => {
             <span className='todos__heading'>Completed</span>
             {
                 todos.map((todo)=>(
+                    todo.isDone ?
                     <SingleTodo 
                         todo={todo}
                         todos={todos}
                         key={todo.id}
                         setTodos={setTodos}
                      />
+                     :
+                     null
                 ))
             }
         </div>
